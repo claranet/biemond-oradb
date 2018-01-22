@@ -123,8 +123,8 @@ define oradb::installasm(
     fail("Unrecognized database grid type, please use ${supported_grid_types}")
   }
 
-  if ( $grid_base == undef or is_string($grid_base) == false) {fail('You must specify an grid_base') }
-  if ( $grid_home == undef or is_string($grid_home) == false) {fail('You must specify an grid_home') }
+  if ( $grid_base == undef or $grid_base =~ String) {fail('You must specify an grid_base') }
+  if ( $grid_home == undef or $grid_home =~ String) {fail('You must specify an grid_home') }
 
   # check if the oracle software already exists
   $found = oradb::oracle_exists( $grid_home )
